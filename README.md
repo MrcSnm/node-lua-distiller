@@ -3,6 +3,11 @@
  1. Merge multiple lua file into one single lua file by analyzing `require` dependencies
  2. (optional) Minify the merged lua file by [LuaSrcDiet](https://github.com/LuaDist/luasrcdiet)
  3. (optional) Compile both merged file and minified file into [luajit binary](http://luajit.org/)
+ 
+# Beware
+ This is a modified version by MrcSnm/Hipreme, it may be unstable for those who're not following my default way of coding, and I'm not considering any subtractive
+ pull requests that would mess up, it is a much slower version than the original one, but as I'm not proficient with coffeescript, and my target is release only
+ I really do not care about velocity right now, PR's are welcome if it makes code cleaner and add functionalities
 
 分析 lua 代码中的 `require` 依赖，将分散的n个 lua 文件拼合成一个单一的 lua 文件
 
@@ -26,6 +31,8 @@ lua-distill -i path/to/main.lua -o dist/dist.lua
   -h, --help                  output usage information
   -V, --version               output the version number
   -o, --output [VALUE]        output directory
+  -s, --nostring              obfuscates every string by putting its ascii code
+ -sc, --scrabble              obfuscates the maximum of functions, (secret|ad|game)keys are obfuscated with another name too
   -n, --onlyKeepMinifiedFile  only keep minified file
   -i, --input [VALUE]         path to main entrance coffee file
   -x, --excludes [VALUE]      package names to be excluded, separated by: ","
